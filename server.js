@@ -24,6 +24,9 @@ const signupRouter = require("./routes/signUp.js");
 
 app.use("/server/login", logInRouter);
 app.use("/server/signup", signupRouter);
+app.use(function(req, res) {
+  res.status(404).json({"Error":"Invilid api request!"});
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {

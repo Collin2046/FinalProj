@@ -21,15 +21,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //const logInRouter = require("./routes/logIn.js");
 const signupRouter = require("./routes/signUp.js");
-
-//app.use("/server/login", logInRouter);
-app.use("/server/signup", signupRouter);
+const itemRouter = require("./routes/item.js");
+//app.use("/login", logInRouter);
+app.use("/signup", signupRouter);
+app.use("/item", itemRouter);
 app.use(function(req, res) {
   res.status(404).json({"Error":"Invilid api request!"});
 });
 
 // listen for requests :)
-app.listen(3001)
-const listener = app.listen(process.env.PORT, function() {
+
+const listener = app.listen(9527, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });

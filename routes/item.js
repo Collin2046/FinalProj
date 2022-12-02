@@ -30,6 +30,15 @@ router.get('/finditem/:id',async function(req, res){
       }
 });
 //admin 
+router.post('/additem', async function(req,res)
+{
+  let Item = new item(req.body);
+  Item.save();
+  res.status(201).json({"message":"adding successful"});
+})
+
+
+
 router.put('/changeitem/:id',async function(req, res){
     try {
         
